@@ -5,6 +5,7 @@ metadata:
   labels:
     app: raviapp1
   name: raviapp1
+  namespace: ravi-project
 spec:
   replicas: 1
   selector:
@@ -24,3 +25,25 @@ spec:
         - containerPort: 80
         resources: {}
 status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ravisvc1
+  name: ravisvc1
+  namespace: ravi-project
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: raviapp1
+  type: NodePort
+status:
+  loadBalancer: {}
