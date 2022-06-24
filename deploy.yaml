@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: raviapp1
+  name: raviapp1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: raviapp1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: raviapp1
+    spec:
+      containers:
+      - image: ravikdocker86/ravimobi2:latest
+        name: ravimobi2
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
